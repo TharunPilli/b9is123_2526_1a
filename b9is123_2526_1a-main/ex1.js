@@ -9,11 +9,26 @@
             //the remove function should update the weight
             //and let the user know when ok to proceed
             let check=()=>{
-              alert('Checking Baggage weight: '+parseInt(document.getElementById('weight').value));
-              //These should only display if it is actually overweight
-              document.getElementById('removed').style='display:block;'
-              document.getElementById('remB').style='display:block;'
+             let weight=parseInt(document.getElementById("weight").value);
+             if(weight>15){
+              alert("Overweight! Current weight: " + weight);
+              document.getElementById("removed").style.display="block";
+              document.getElementById("remB").style.display="block";
+             } else
+             {
+              alert("Weight is OK. You Can Proceed");
+             }
             }
-            let remove=()=>alert('Removing weight: '+parseInt(document.getElementById('removed').value))
-
-            //Test edit no. 2;
+            let remove = ()=>{
+              let weight=parseInt(document.getElementById("weight").value);
+              let removed=parseInt(document.getElementById("removed").value);
+              let newWeight=weight-removed;
+              document.getElementById("weight").value=newWeight;
+              if(newWeight<=15){
+                alert("Now OK! New Weight : " + newWeight);
+              }
+              else{
+                alert("Still overweight ! Current weight: " + newWeight);
+              }
+            }
+            
